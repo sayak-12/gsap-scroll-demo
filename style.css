@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.section{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #1d1d1d;
+
+}
+body{
+    background-color: #1d1d1d;
+    padding: 0 5%;
+    color: rgb(202, 202, 202);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.3rem;
+}
+.windmill{
+    height: 300px;
+    width: 300px;
+    /* background: red; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.fans{
+    background: #02b482;
+    height: 75px;
+    width: 150px;
+    position: absolute;
+    border-radius: 75px 0 75px 0;
+}
+.fan1{
+    left: 0;
+    transform: translateY(37.5px);
+}
+.fan2{
+    top: 0;
+    transform: rotate(90deg) translate(37.5px,37.5px);
+}
+.fan3{
+    right: 0;
+    border-radius: 75px 0 75px 0;
+    transform: translateY(-37.5px);
+
+}
+.fan4{
+    bottom: 0;
+    transform: rotate(-90deg) translate(37.5px,37.5px);
+}
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
