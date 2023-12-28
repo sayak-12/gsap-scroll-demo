@@ -14,10 +14,13 @@
 }
 body{
     background-color: #1d1d1d;
-    padding: 0 5%;
+    padding: 0 10% 0 5%;
     color: rgb(202, 202, 202);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2.3rem;
+}
+.content{
+    text-align: justify;
 }
 .windmill{
     height: 300px;
@@ -53,6 +56,10 @@ body{
 .fan4{
     bottom: 0;
     transform: rotate(-90deg) translate(37.5px,37.5px);
+}
+.secsvg{
+    justify-content: center;
+    align-items: end;
 }
 @keyframes rotate {
     from{
