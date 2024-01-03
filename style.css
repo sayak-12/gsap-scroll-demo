@@ -59,7 +59,9 @@ body{
 }
 .secsvg{
     justify-content: center;
-    align-items: end;
+    position: relative;
+    width: max-content;
+    height: max-content;
 }
 @keyframes rotate {
     from{

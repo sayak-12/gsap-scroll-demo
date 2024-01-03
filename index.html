@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/MotionPathPlugin.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.min.js"></script>
 </head>
 
 <body>
@@ -151,16 +152,19 @@
         repudiandae exercitationem! Soluta, unde. Animi officiis numquam dicta ut eveniet placeat, repudiandae eum atque
         obcaecati illum quaerat, culpa vero nisi sapiente possimus maiores, tempore voluptatem fugit sunt!
     </div>
-    <div class="section secsvg">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1240" height="408" viewBox="0 0 1240 408" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M1056.79 696.953C944.559 770.09 790.101 815 620 815C449.899 815 295.441 770.09 183.205 696.953C71.0618 623.876 0 521.758 0 407.5C0 293.242 71.0618 191.124 183.205 118.047C295.441 44.9097 449.899 0 620 0C790.101 0 944.559 44.9097 1056.79 118.047C1168.94 191.124 1240 293.242 1240 407.5C1240 521.758 1168.94 623.876 1056.79 696.953ZM620 805C956.894 805 1230 627.033 1230 407.5C1230 187.967 956.894 10 620 10C283.106 10 10 187.967 10 407.5C10 627.033 283.106 805 620 805Z" fill="white"/>
-          </svg>
+    <div class="section secsvg" style="position: relative;">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width:1240px; height:1000px" fill="none" style="position: relative;">
+            
+<path class="theline" style="stroke: rgb(216, 216, 216);" d="M 311.644 207.763 C 350.227 207.763 374.342 249.53 355.05 282.945 C 351.348 289.357 341.703 296.582 339.041 299.087 C 309.558 326.824 309.051 372.009 344.178 392.123 C 368.286 405.927 368.41 440.653 344.401 454.628 C 339.459 457.505 333.905 459.166 328.196 459.475 C 314.126 460.237 306.157 475.943 313.852 487.747 C 315.698 490.579 318.292 492.845 321.347 494.292"></path>
+            
+<ellipse style="fill: chartreuse; stroke: rgb(0, 0, 0);" class="ball" cx="50" cy="50" rx="5" ry="5"></ellipse>
 
+          </svg>
     </div>
     <script>
         const sectionWidth = document.querySelector(".section").offsetWidth;
         const objectwidth = document.querySelector(".windmill").offsetWidth;
-        console.log(sectionWidth);
+        // console.log(sectionWidth);
         gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
         gsap.fromTo(".windmill", { x: 0, rotate: 0 }, {
             scrollTrigger: {
@@ -177,7 +181,20 @@
             x: (sectionWidth-objectwidth),
 
         });
-
+        const main = gsap.timeline({
+            scrollTrigger:{
+                trigger: ".ball", 
+                scrub: true,
+                start: "top 100%", 
+                end:"bottom 0%",
+                // markers: true
+            }
+        })
+        .to(".ball", {motionPath:{
+            path: ".theline",
+            align: ".theline",
+            alignOrigin: [0.5,0.5]
+        }, duration:4})
     </script>
 </body>
 
